@@ -39,7 +39,7 @@ MongoClient.connect(db.url, function(err, db){
                 res.send({'error': 'an error has occured'});
             if(shortenedurl == null){
                 console.log("entry did not exist, inserting new one");
-                db.collection('url').insert(retobj, function(data){
+                db.collection('url').insert(retobj, {'_id': 0}, function(data){
                     res.send(retobj);
                 });
             }else{
@@ -50,7 +50,7 @@ MongoClient.connect(db.url, function(err, db){
     });
 
     app.get('/:shortened', function(req, res){
-        var shortened = 'localhost:' + PORT + '/' + req.params.shortened;
+        var shortened = 'https://url-shortener-api-omar.herokuapp.com/' + req.params.shortened;
         console.log(shortened);
         db.collection('url').findOne({shortened: shortened}, {'_id': 0}, function(err, item){
             if(item != null){
