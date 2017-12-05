@@ -14,9 +14,38 @@ app.listen(PORT, function(){
 
 MongoClient.connect(db.url, function(err, db){
 
-    app.get('/:url', function(req, res){
-        0
-
+    if(err){
+        return console.log("could not connect to database" + err);
+    }
+    app.get(('/https://:url$'), function(req, res){
+        var urllong = req.params.url;
+        console.log(encodeURI(urllong));
+        console.log(urllong);
+        console.log(encodeURIComponent(urllong));
+        var retobj = {
+            url: urllong,
+            shortened: encodeURI(urllong),
+        };
+        db.collection('url').findOne({url: urllong}, function(err, item){
+            var data = JSON.stringify(item);
+            
+            if(err)
+                res.send({'error': 'an error has occured'});
+            if(data.shortened != null && urllong == data.shortened){
+                console.log('data entry exists and shortened url was accessed');
+                res.redirect(data.url);
+            }else{
+                if(data.shortened == null){
+                    console.log("entry did not exist, inserting new one");
+                    db.collection('url').insert(retobj, function(data){
+                        res.send(retobj);
+                    });
+                }else{
+                    console.log("entry already existed. Sending back previous data");
+                    res.send(data);
+                }
+            }
+        });
+        
     });
-
 });
