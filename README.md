@@ -33,3 +33,11 @@ module.exports = {
   url = "mongodb://<dbuser>:<dbpassword>@ds123722.mlab.com:23722/YourDatabaseName"
 };
 ```
+
+The url of this project can be found here: 
+https://url-shortener-api-omar.herokuapp.com/
+
+To use: enter urls with the following: 
+```
+https://url-shortener-api-omar.herokuapp.com/https://google.ca
+```
