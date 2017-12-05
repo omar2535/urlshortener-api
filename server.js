@@ -39,8 +39,11 @@ MongoClient.connect(db.url, function(err, db){
                 res.send({'error': 'an error has occured'});
             if(shortenedurl == null){
                 console.log("entry did not exist, inserting new one");
-                db.collection('url').insert(retobj, {'_id': 0}, function(data){
-                    res.send(retobj);
+                db.collection('url').insert(retobj, function(data){
+                    res.send({
+                        url: urllong,
+                        shortened: shortened
+                    });
                 });
             }else{
                 console.log("entry already existed. Sending back previous data");
