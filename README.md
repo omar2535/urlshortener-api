@@ -19,7 +19,9 @@ node server.js
 Example of requests include are: 
 
 ```
-N/A
+https://url-shortener-api-omar.herokuapp.com/https://google.ca
+```
+
 ```
 
 An existing one is running via heroku: 
@@ -37,7 +39,3 @@ module.exports = {
 The url of this project can be found here: 
 https://url-shortener-api-omar.herokuapp.com/
 
-To use: enter urls with the following: 
-```
-https://url-shortener-api-omar.herokuapp.com/https://google.ca
-```
