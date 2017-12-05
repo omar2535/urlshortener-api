@@ -105,7 +105,7 @@ function GenerateNewShortenedNumber(){
 
 //To keep heroku worker alive
 var reqTimer = setTimeout(function wakeUp() {
-    request("https://unix-date-api.herokuapp.com/", function() {
+    request("https://url-shortener-api-omar.herokuapp.com/", function() {
        console.log("WAKE UP DYNO");
     });
     return reqTimer = setTimeout(wakeUp, 1200000);
