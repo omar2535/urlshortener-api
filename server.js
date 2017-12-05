@@ -2,7 +2,7 @@ var express = require('express');
 var MongoClient = require('mongodb').MongoClient;
 var bodyParser = require('body-parser');
 var db = require('./config/db');
-var request = require('request');
+
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,7 +24,7 @@ MongoClient.connect(db.url, function(err, db){
     //Getting url when a url is passed into be shortened
     app.get(('/https://:url$'), function(req, res){
         var urllong = "https://" + req.params.url;
-        var shortened = 'localhost:' + PORT + '/' + Math.round(Math.random() * 1000000000000);
+        var shortened = 'https://url-shortener-api-omar.herokuapp.com/' + Math.round(Math.random() * 1000000000000);
         var retobj = {
             url: urllong,
             shortened: shortened,
