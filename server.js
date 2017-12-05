@@ -63,7 +63,9 @@ MongoClient.connect(db.url, function(err, db){
         });
 
     });
-    
+    app.get('/', function(req, res){
+        res.send('this is an api for shortening your links');
+    });
 });
 
 
