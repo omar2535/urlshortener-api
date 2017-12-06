@@ -24,9 +24,6 @@ https://url-shortener-api-omar.herokuapp.com/https://google.ca
 
 ```
 
-An existing one is running via heroku: 
-Not set up yet
-
 This uses mLab for the mongodb database. Make a new config folder and add your own db.js file with the following code
 
 ``` javascript
