@@ -22,7 +22,7 @@ Example of requests include are:
 https://url-shortener-api-omar.herokuapp.com/https://google.ca
 ```
 
-```
+
 
 This uses mLab for the mongodb database. Make a new config folder and add your own db.js file with the following code
 
